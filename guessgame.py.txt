@@ -1,0 +1,49 @@
+import random,os
+print("welcome to the guess number game")
+print("im thinkgin the number between 1-100")
+dif=input("Choise a diffuclty.Type 'easy' or 'hard': ")
+
+
+def dif_func(dif):
+    if dif=='easy':
+        return 10
+    else:
+        return 5
+
+attemps=dif_func(dif)
+rand=random.randint(0,100)
+
+def h_or_l(num,rand):
+    if num==rand:
+        return True
+    elif num<rand:
+        return "too low"
+    else:
+        return "too high"
+
+   
+
+
+    
+flag=True
+while flag:
+    print(f"you have {attemps} attemps remaining the guess number") 
+    num=int(input("Make a guess"))
+    sec=h_or_l(num,rand)
+    if sec==True:
+        print(f"you got it.the number is {rand}")
+        flag=False
+    else:
+        os.system('cls')
+        print(sec)
+        print("guess again")
+        attemps-=1
+        if attemps==0:
+            print("You've run out of gueses, you lose")
+            flag=False
+        
+    
+
+
+    
+        
